@@ -3,10 +3,31 @@ package greeting
 import "testing"
 
 func TestGreet(t *testing.T) {
-	got := Greet("Maeve")
-	want := "Hello, Maeve!"
+	t.Run("saying hello to people in english", func(t *testing.T) {
+		got := Greet("en", "Maeve")
+		want := "Hello, Maeve!"
+		assertCorrectMessage(t, got, want)
+	})
+	t.Run("saying hello to people in russian", func(t *testing.T) {
+		got := Greet("ru", "Maeve")
+		want := "привет, Maeve!"
+		assertCorrectMessage(t, got, want)
+	})
+	t.Run("saying hello to people in japanese", func(t *testing.T) {
+		got := Greet("jp", "Maeve")
+		want := "こんにちは, Maeve!"
+		assertCorrectMessage(t, got, want)
+	})
+	t.Run("say 'Hello, world!' when an empty string is supplied", func(t *testing.T) {
+		got := Greet("en", "")
+		want := "Hello, world!"
+		assertCorrectMessage(t, got, want)
+	})
+}
+
+func assertCorrectMessage(t testing.TB, got, want string) {
+	t.Helper() // Reports line number inside the function call, rather than this test helper.
 	if got != want {
 		t.Errorf("Got %q want %q", got, want)
 	}
-
 }
