@@ -1,6 +1,9 @@
 package greeting
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 const (
 	englishHelloPrefix  = "Hello"
@@ -8,24 +11,31 @@ const (
 	japaneseHelloPrefix = "こんにちは"
 )
 
-func greetingPrefix(language string) (prefix string) {
+func greetingPrefix(language string) (string, error) {
 	switch language {
+	case "en":
+		return englishHelloPrefix, nil
 	case "ru":
-		prefix = russianHelloPrefix
+		return russianHelloPrefix, nil
 	case "jp":
-		prefix = japaneseHelloPrefix
+		return japaneseHelloPrefix, nil
 	default:
-		prefix = englishHelloPrefix
+		return "", errors.New("Unsupported language")
 	}
-	return
 }
 
-// Takes the ISO 639-1 code of a language as the first argument, and returns a greeting string using the string given as the second argument.
+// Takes the ISO 639-1 code of a supported language as the first argument, and returns a greeting string using the string given as the second argument.
 // If an empty string is provided, it uses the string "world" as a placeholder.
 func Greet(language, name string) string {
 	if name == "" {
 		name = "world"
 	}
 
-	return fmt.Sprintf("%s, %s!", greetingPrefix(language), name)
+	prefix, err := greetingPrefix(language)
+
+	if err != nil {
+		return fmt.Sprintf("%s", err)
+	}
+
+	return fmt.Sprintf("%s, %s!", prefix, name)
 }
