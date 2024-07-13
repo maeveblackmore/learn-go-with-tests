@@ -1,8 +1,12 @@
 package main
 
-import "hello/greeting"
+import (
+	"fmt"
+	"hello/greeting"
+)
 
 func main() {
+	prefixLanguage := "jp"
 	firstName := "Maeve"
-	greeting.Greet(firstName)
+	fmt.Println(greeting.Greet(prefixLanguage, firstName))
 }
