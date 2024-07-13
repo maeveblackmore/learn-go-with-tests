@@ -18,9 +18,14 @@ func TestGreet(t *testing.T) {
 		want := "こんにちは, Maeve!"
 		assertCorrectMessage(t, got, want)
 	})
-	t.Run("say 'Hello, world!' when an empty string is supplied", func(t *testing.T) {
+	t.Run("saying 'Hello, world!' when an empty string is supplied", func(t *testing.T) {
 		got := Greet("en", "")
 		want := "Hello, world!"
+		assertCorrectMessage(t, got, want)
+	})
+	t.Run("providing an unsupported language", func(t *testing.T) {
+		got := Greet("zz", "")
+		want := "Unsupported language"
 		assertCorrectMessage(t, got, want)
 	})
 }
