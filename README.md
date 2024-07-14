@@ -6,3 +6,7 @@
 > [here](https://quii.gitbook.io/learn-go-with-tests).
 >
 > I am by no means affiliated with the resource.
+
+- [x] [Hello, World](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/hello-world)
+- [x] [Integers](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/integers)
+- [x] [Iteration](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/iteration)
