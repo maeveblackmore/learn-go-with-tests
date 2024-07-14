@@ -1,7 +1,7 @@
 package arraysandslices
 
-func Sum(numbers [5]int) (total int) {
-	for _, number := range numbers {
+func Sum(numbers []int) (total int) {
+	for _, number := range numbers { // The `_` represents a blank identifier.
 		total += number
 	}
 	return
