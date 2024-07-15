@@ -4,7 +4,7 @@ import "testing"
 
 func TestPerimeter(t *testing.T) {
 	rectangle := Rectangle{10.0, 10.0}
-	got := Perimeter(rectangle)
+	got := rectangle.Perimeter()
 	want := 40.0
 
 	if got != want {
@@ -19,7 +19,7 @@ func TestArea(t *testing.T) {
 		want := 72.0
 
 		if got != want {
-			t.Errorf("got %.2f want %.2f", got, want) // Display to 2 decimal places.
+			t.Errorf("got %.2f want %.2f", got, want)
 		}
 	})
 
@@ -29,7 +29,17 @@ func TestArea(t *testing.T) {
 		want := 314.1592653589793
 
 		if got != want {
-			t.Errorf("got %g want %g", got, want) // Display to 2 decimal places.
+			t.Errorf("got %g want %g", got, want) // Exponent as needed, only necessary digits.
 		}
 	})
+}
+
+func TestCircumference(t *testing.T) {
+	circle := Circle{12.0}
+	got := circle.Circumference()
+	want := 75.39822368615503
+
+	if got != want {
+		t.Errorf("got %g want %g", got, want)
+	}
 }
