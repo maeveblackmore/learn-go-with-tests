@@ -2,16 +2,6 @@ package structsmethodsinterfaces
 
 import "testing"
 
-func TestPerimeter(t *testing.T) {
-	rectangle := Rectangle{10.0, 10.0}
-	got := rectangle.Perimeter()
-	want := 40.0
-
-	if got != want {
-		t.Errorf("got %.2f want %.2f", got, want) // Display to 2 decimal places.
-	}
-}
-
 func TestArea(t *testing.T) {
 	areaTests := []struct {
 		shape Shape
@@ -19,6 +9,7 @@ func TestArea(t *testing.T) {
 	}{
 		{Rectangle{12, 6}, 72.0},
 		{Circle{10}, 314.1592653589793},
+		{Triangle{12, 6}, 36.0},
 	}
 
 	for _, tt := range areaTests {
@@ -30,12 +21,21 @@ func TestArea(t *testing.T) {
 	}
 }
 
-func TestCircumference(t *testing.T) {
-	circle := Circle{12.0}
-	got := circle.Circumference()
-	want := 75.39822368615503
+func TestPerimeter(t *testing.T) {
+	perimeterTests := []struct {
+		shape Shape
+		want  float64
+	}{
+		{Rectangle{32.0, 24.0}, 112.0},
+		{Circle{12.0}, 75.39822368615503},
+		{Triangle{20.0, 40.0}, 100.0},
+	}
 
-	if got != want {
-		t.Errorf("got %g want %g", got, want)
+	for _, tt := range perimeterTests {
+		got := tt.shape.Perimeter()
+
+		if got != tt.want {
+			t.Errorf("got %g want %g", got, tt.want)
+		}
 	}
 }
