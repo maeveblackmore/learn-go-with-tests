@@ -2,7 +2,15 @@ package pointerserrors
 
 import "fmt"
 
+type Stringer interface {
+	String() string
+}
+
 type Bitcoin int
+
+func (b Bitcoin) String() string {
+	return fmt.Sprintf("%d BTC", b)
+}
 
 // Lowercase fields are considered private outside of this package.
 
@@ -18,6 +26,10 @@ type Wallet struct {
 func (w *Wallet) Deposit(amount Bitcoin) {
 	fmt.Printf("address of balance in test is %p \n", &w.balance)
 	w.balance += amount
+}
+
+func (w *Wallet) Withdraw(amount Bitcoin) {
+	w.balance -= amount
 }
 
 // We don't technically need the pointer reciever here as we aren't modifiying the value on the field.
