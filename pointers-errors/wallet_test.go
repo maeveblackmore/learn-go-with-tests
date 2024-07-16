@@ -6,18 +6,32 @@ import (
 )
 
 func TestWallet(t *testing.T) {
-	wallet := Wallet{}
-	wallet.Deposit(10)
+	t.Run("deposit", func(t *testing.T) {
+		wallet := Wallet{}
+		wallet.Deposit(Bitcoin(10))
 
-	got := wallet.Balance()
+		got := wallet.Balance()
 
-	// `&` obtains the memory address where the variable `wallet.balance` is stored.
-	// `%p` prints memory addresses in base 16 notation with a leading `0x` to represent hexadecimal.
-	fmt.Printf("address of balance in test is %p \n", &wallet.balance)
+		// `&` obtains the memory address where the variable `wallet.balance` is stored.
+		// `%p` prints memory addresses in base 16 notation with a leading `0x` to represent hexadecimal.
+		fmt.Printf("address of balance in test is %p \n", &wallet.balance)
 
-	want := 10
+		want := Bitcoin(10)
 
-	if got != want {
-		t.Errorf("got %d want %d... %#v", got, want, wallet.balance)
-	}
+		if got != want {
+			t.Errorf("got %s want %s", got, want)
+		}
+	})
+
+	t.Run("withdraw", func(t *testing.T) {
+		wallet := Wallet{balance: Bitcoin(10)}
+		wallet.Withdraw(Bitcoin(5))
+
+		got := wallet.Balance()
+		want := Bitcoin(5)
+
+		if got != want {
+			t.Errorf("got %s want %s", got, want)
+		}
+	})
 }
