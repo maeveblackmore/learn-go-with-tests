@@ -23,6 +23,24 @@ func TestSearch(t *testing.T) {
 	})
 }
 
+func TestAdd(t *testing.T) {
+	// Create an empty dictionary
+	dictionary := Dictionary{}
+
+	// Add a new word and definition
+	dictionary.Add("hello", "greet someone")
+	want := "greet someone"
+
+	// `got` should be "greet someone"
+	got, err := dictionary.Search("hello")
+
+	if err != nil {
+		t.Fatal("should find added word:", err)
+	}
+
+	assertString(t, got, want)
+}
+
 func assertString(t testing.TB, got, want string) {
 	t.Helper()
 
