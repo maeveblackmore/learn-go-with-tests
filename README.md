@@ -12,4 +12,5 @@
 - [x] [Iteration](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/iteration)
 - [x] [Arrays and slices](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/arrays-and-slices)
 - [x] [Structs, methods & interfaces](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/structs-methods-and-interfaces)
-- [ ] [Pointers & errors](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/pointers-and-errors)
+- [x] [Pointers & errors](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/pointers-and-errors)
+- [ ] [Maps](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/maps)
