@@ -14,6 +14,7 @@ func (e DictionaryErr) Error() string {
 
 type DictionaryErr string
 
+// Search finds the definition of a given word.
 func (d Dictionary) Search(word string) (string, error) {
 	definition, ok := d[word]
 	if !ok {
@@ -22,6 +23,7 @@ func (d Dictionary) Search(word string) (string, error) {
 	return definition, nil
 }
 
+// Add inserts a word and definition into the dictionary.
 func (d Dictionary) Add(word, definition string) error {
 	_, err := d.Search(word)
 
@@ -37,6 +39,7 @@ func (d Dictionary) Add(word, definition string) error {
 	return nil
 }
 
+// Update changes the definition of a given word to the definition provided.
 func (d Dictionary) Update(word, newDefinition string) error {
 	_, err := d.Search(word)
 
@@ -52,6 +55,7 @@ func (d Dictionary) Update(word, newDefinition string) error {
 	return nil
 }
 
+// Delete removes a given word from the dictionary.
 func (d Dictionary) Delete(word string) {
 	delete(d, word)
 }
