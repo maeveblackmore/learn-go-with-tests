@@ -13,4 +13,5 @@
 - [x] [Arrays and slices](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/arrays-and-slices)
 - [x] [Structs, methods & interfaces](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/structs-methods-and-interfaces)
 - [x] [Pointers & errors](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/pointers-and-errors)
-- [ ] [Maps](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/maps)
+- [x] [Maps](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/maps)
+- [ ] [Dependency Injection](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/dependency-injection)
